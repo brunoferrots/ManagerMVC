@@ -29,8 +29,8 @@
             <li>
                     ${company.name}
                 <fmt:formatDate value="${company.dateOpened}" pattern="dd/MM/yyyy"/>
-                <a href="/ManagerMVC/gateway?action=showCompany&id=${company.id}">Edit</a>
-                <a href="/ManagerMVC/gateway?action=removeCompany&id=${company.id}">Remove</a>
+                <a href="/ManagerMVC/gateway?action=ShowCompany&id=${company.id}">Edit</a>
+                <a href="/ManagerMVC/gateway?action=RemoveCompany&id=${company.id}">Remove</a>
             </li>
         </c:forEach>
     </ul>

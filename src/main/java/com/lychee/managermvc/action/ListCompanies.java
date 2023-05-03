@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class ListCompanies {
+public class ListCompanies implements Action {
 
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Listing companies...");

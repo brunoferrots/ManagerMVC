@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ShowCompany {
+public class ShowCompany implements Action {
 
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer companyId = Integer.valueOf(req.getParameter("id"));

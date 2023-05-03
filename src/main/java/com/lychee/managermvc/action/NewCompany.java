@@ -11,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NewCompany {
+public class NewCompany implements Action {
 
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String companyName = req.getParameter("name");
@@ -32,6 +32,6 @@ public class NewCompany {
         req.setAttribute("companyId", Integer.toString(company.getId()));
         req.setAttribute("companyDate", company.getDateOpened());
 
-        return "redirect:gateway?action=listCompanies";
+        return "redirect:gateway?action=ListCompanies";
     }
 }
