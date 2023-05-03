@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class NewCompany {
 
-    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String companyName = req.getParameter("name");
         Date companyDate = null;
 
@@ -32,6 +32,6 @@ public class NewCompany {
         req.setAttribute("companyId", Integer.toString(company.getId()));
         req.setAttribute("companyDate", company.getDateOpened());
 
-        resp.sendRedirect("gateway?action=listCompanies");
+        return "redirect:gateway?action=listCompanies";
     }
 }

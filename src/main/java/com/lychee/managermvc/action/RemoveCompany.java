@@ -9,14 +9,13 @@ import java.io.IOException;
 
 public class RemoveCompany {
 
-    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Removing companies...");
         Integer companyId = Integer.valueOf(req.getParameter("id"));
 
         DataBaseCompanies dataBase = new DataBaseCompanies();
         dataBase.remove(companyId);
 
-        resp.sendRedirect("gateway?action=listCompanies");
-
+        return "redirect:gateway?action=listCompanies";
     }
 }
