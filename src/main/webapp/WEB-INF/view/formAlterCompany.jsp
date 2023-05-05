@@ -15,6 +15,7 @@
     <title>Title</title>
 </head>
 <body>
+    <p><c:import url="logout-part.jsp"/></p>
     <form action="${linkGatewayServlet}" method="post">
         <h2>Company Data</h2>
         <span>Name: </span>

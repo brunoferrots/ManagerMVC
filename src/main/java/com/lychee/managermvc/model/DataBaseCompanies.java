@@ -6,10 +6,12 @@ public class DataBaseCompanies {
 
     private static List<Company> companies = new ArrayList<>();
     private static Integer sequentialKey = 1;
+    private static List<User> usersList = new ArrayList<>();
 
     static {
         DataBaseCompanies.companies.add(new Company("Oracle", new Date(), sequentialKey++));
         DataBaseCompanies.companies.add(new Company("JetBrains", new Date(), sequentialKey++));
+        DataBaseCompanies.usersList.add(new User("brunoIron", "6109"));
     }
 
     public void annex(Company company) {
@@ -42,4 +44,10 @@ public class DataBaseCompanies {
         return null;
     }
 
+    public User userValidation(String login, String password) {
+        for (User user : usersList) {
+            return (user.isEqual(login, password)) ? user : null;
+        }
+        return null;
+    }
 }

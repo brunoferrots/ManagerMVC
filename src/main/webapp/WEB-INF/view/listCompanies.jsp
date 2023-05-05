@@ -16,6 +16,9 @@
     <title>List Companies</title>
 </head>
 <body>
+    <p><c:import url="logout-part.jsp"/></p>
+    <h1>User Logged-In : ${userLogged.login}</h1>
+
     <c:if test="${not empty companyName}">
         <h2>Company created with success!</h2>
         <p>Name : ${companyName} </p>

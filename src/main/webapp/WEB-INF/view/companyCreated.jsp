@@ -13,6 +13,7 @@
     <title>Company Created</title>
 </head>
 <body>
+    <p><c:import url="logout-part.jsp"/></p>
     <c:if test="${not empty companyName}">
       <h2>Company created with success!</h2>
       <p>Name : ${companyName} </p>

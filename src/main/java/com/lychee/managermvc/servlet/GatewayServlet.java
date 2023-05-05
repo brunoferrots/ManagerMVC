@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/gateway")
@@ -16,6 +17,16 @@ public class GatewayServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String param = req.getParameter("action");
+
+        HttpSession session = req.getSession();
+        boolean userIsNotLogged = session.getAttribute("userLogged") == null;
+        boolean actionIsNotUnlocked = !(param.equals("Login") || param.equals("FormLogin"));
+
+        if (userIsNotLogged && actionIsNotUnlocked) {
+            resp.sendRedirect("gateway?action=FormLogin");
+            return;
+        }
+
         String nameOfClass = "com.lychee.managermvc.action." + param;
         String path = null;
 
@@ -27,28 +38,6 @@ public class GatewayServlet extends HttpServlet {
             throw new ServletException(e);
         }
 
-//        switch (param) {
-//            case "listCompanies" :
-//                path = new ListCompanies().execute(req, resp);
-//                break;
-//            case "removeCompany" :
-//                path = new RemoveCompany().execute(req, resp);
-//                break;
-//            case "alterCompany" :
-//                path = new AlterCompany().execute(req, resp);
-//                break;
-//            case "newCompany" :
-//                path = new NewCompany().execute(req, resp);
-//                break;
-//            case "showCompany" :
-//                path = new ShowCompany().execute(req, resp);
-//                break;
-//            case "formNewCompany" :
-//                path = new FormNewCompany().execute(req, resp);
-//                break;
-//        }
-//
-//        assert path != null;
         String[] pathDivided = path.split(":");
 
         if (pathDivided[0].equals("forward")) {

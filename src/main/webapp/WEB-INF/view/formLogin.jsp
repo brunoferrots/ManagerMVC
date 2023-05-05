@@ -10,17 +10,14 @@
 <c:url value="/gateway" var="linkGatewayServlet" />
 <html>
 <head>
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body>
-    <p><c:import url="logout-part.jsp"/></p>
     <form action="${linkGatewayServlet}" method="post">
-        <h2>Company Data</h2>
-        <span>Name: </span>
-        <input type="text" name="name"/>
-        <span>Date: </span>
-        <input type="text" name="date">
-        <input type="hidden" name="action" value="NewCompany"/>
+        <h2>Data Access</h2>
+        <label>Login: <input type="text" name="login"/></label>
+        <label>Password:<input type="password" name="password"></label>
+        <input type="hidden" name="action" value="Login"/>
         <button type="submit">Send</button>
     </form>
 
