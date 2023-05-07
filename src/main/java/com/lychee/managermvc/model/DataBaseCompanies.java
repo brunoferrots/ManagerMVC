@@ -19,7 +19,7 @@ public class DataBaseCompanies {
         DataBaseCompanies.companies.add(company);
     }
 
-    public List<Company> showDBC() {
+    public List<Company> showCompanies() {
         return DataBaseCompanies.companies;
     }
 

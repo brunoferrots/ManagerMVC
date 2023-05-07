@@ -14,7 +14,7 @@ public class ListCompanies implements Action {
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Listing companies...");
 
-        List<Company> listCompanies = new DataBaseCompanies().showDBC();
+        List<Company> listCompanies = new DataBaseCompanies().showCompanies();
 
         req.setAttribute("listCompanies", listCompanies);
 
